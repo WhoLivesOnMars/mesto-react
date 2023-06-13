@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__copyright">&copy; {date} Mesto Russia</p>
-    </footer> 
+    </footer>
   )
 }
 

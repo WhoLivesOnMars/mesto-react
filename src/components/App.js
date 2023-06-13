@@ -10,12 +10,12 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
-  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
+  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
 
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true);
-  } 
+  }
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -74,14 +74,14 @@ function App() {
           <div className="popup__field">
             <input 
               id="description-input"
-              type="text" 
+              type="text"
               name="description"
               defaultValue=""
               placeholder="О себе"
               className="popup__input edit-form__input edit-form__input_type_description"
               required
               minLength="2"
-              maxLength="200" 
+              maxLength="200"
             />
             <span className="description-input-error popup__input-error"></span>
           </div>
@@ -133,7 +133,7 @@ function App() {
               name="avatar"
               placeholder="Ссылка на картинку"
               className="popup__input popup__input_input_link"
-              required 
+              required
             />
             <span className="avatar-input-error popup__input-error" />
           </div>

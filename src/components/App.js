@@ -10,6 +10,7 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
   const [selectedCard, setSelectedCard] = React.useState({});
 
   function handleEditAvatarClick() {
@@ -28,10 +29,12 @@ function App() {
     setEditAvatarPopupOpen(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
+    setIsImagePopupOpen(false);
     setSelectedCard({});
   }
 
   function handleCardClick(card) {
+    setIsImagePopupOpen(true)
     setSelectedCard(card);
   }
 
@@ -59,12 +62,12 @@ function App() {
               id="username-input"
               type="text"
               name="name"
-              value=""
+              defaultValue=""
               placeholder="Имя"
               className="popup__input edit-form__input edit-form__input_type_username"
               required
-              minlength="2"
-              maxlength="40"
+              minLength="2"
+              maxLength="40"
             />
             <span className="username-input-error popup__input-error" />
           </div>
@@ -73,12 +76,12 @@ function App() {
               id="description-input"
               type="text" 
               name="description"
-              value=""
+              defaultValue=""
               placeholder="О себе"
               className="popup__input edit-form__input edit-form__input_type_description"
               required
-              minlength="2"
-              maxlength="200" 
+              minLength="2"
+              maxLength="200" 
             />
             <span className="description-input-error popup__input-error"></span>
           </div>
@@ -98,8 +101,8 @@ function App() {
               placeholder="Название"
               className="popup__input item-form__input item-form__input_type_title"
               required
-              minlength="2"
-              maxlength="30" 
+              minLength="2"
+              maxLength="30" 
             />
             <span className="title-input-error popup__input-error" />
           </div>
@@ -137,6 +140,7 @@ function App() {
         </PopupWithForm>
         <ImagePopup
           card={selectedCard}
+          isOpen={isImagePopupOpen}
           onClose={closeAllPopups}
         />
     </div>

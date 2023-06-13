@@ -1,11 +1,6 @@
 import React from "react";
 
 function PopupWithForm({ isOpen, onClose, name, title, buttonText, children, userForm }) {
-  function handleEscClose(evt) {
-    if (evt.key === 'Escape') {
-      onClose();
-    }
-  };
     
   function handleOverlayClose(evt) {
     if (evt.target.classList.contains('popup')) {
@@ -14,17 +9,24 @@ function PopupWithForm({ isOpen, onClose, name, title, buttonText, children, use
   };
 
   React.useEffect(() => {
-    document.addEventListener('keyup', handleEscClose);
-    return () => {
-      document.removeEventListener('keyup', handleEscClose);
+    function closeByEscape(evt) {
+      if(evt.key === 'Escape') {
+        onClose();
+      }
     }
-  }, [isOpen]);
+    if(isOpen) {
+      document.addEventListener('keydown', closeByEscape);
+      return () => {
+        document.removeEventListener('keydown', closeByEscape);
+      }
+    }
+  }, [isOpen])
 
   return(
     <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} onClick={handleOverlayClose}>
       <div className="popup__container">
         <button className="popup__close-button" type="button" aria-label="Закрыть" onClick={onClose} />
-        <form className="popup__content" method="post" novalidate name={userForm}>
+        <form className="popup__content" method="post" name={userForm}>
           <h3 className="popup__title">{`${title}`}</h3>
           <fieldset className="popup__fieldset">
             {children}

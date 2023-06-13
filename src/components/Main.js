@@ -15,6 +15,9 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
       setUserDescription(about);
       setUserAvatar(avatar);
     })
+    .catch((err) => {
+      console.log(err);
+    });
   }, []);
 
   React.useEffect(() => {
@@ -23,6 +26,9 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
       Object.entries(cardsInfo)
       setCards(cardsInfo)
     })
+    .catch((err) => {
+      console.log(err);
+    });
   }, []);
 
   return (
@@ -42,7 +48,10 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick }) {
       <section className="elements">
         <ul className="elements__cells">
           {cards.map((card) => (
-            <Card card={card} onCardClick={onCardClick} />
+            <Card
+              key={card._id}
+              card={card} 
+              onCardClick={onCardClick} />
           ))}
         </ul>
       </section>

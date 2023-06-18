@@ -33,8 +33,8 @@ class Api {
       method: 'PATCH',
       headers: this._getHeaders(),
       body: JSON.stringify({
-        name: item.username,
-        about: item.description
+        name: item.name,
+        about: item.about
       })
     });
   }
@@ -63,18 +63,22 @@ class Api {
     });
   }
 
-  addLike(id) {
+  _addLike(id) {
     return this._request(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
       headers: this._getHeaders()
     });
   }
 
-  deleteLike(id) {
+  _deleteLike(id) {
     return this._request(`${this._baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: this._getHeaders()
     });
+  }
+
+  changeLikeCardStatus(id, isLiked) {
+    return !isLiked ? this._deleteLike(id) : this._addLike(id)
   }
 
   setNewAvatar(input) {

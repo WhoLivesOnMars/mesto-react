@@ -1,6 +1,6 @@
 import React from "react";
 
-function PopupWithForm({ isOpen, onClose, name, title, buttonText, children, userForm }) {
+function PopupWithForm({ isOpen, onClose, name, title, buttonText, children, userForm, onSubmit }) {
     
   function handleOverlayClose(evt) {
     if (evt.target.classList.contains('popup')) {
@@ -26,7 +26,7 @@ function PopupWithForm({ isOpen, onClose, name, title, buttonText, children, use
     <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} onClick={handleOverlayClose}>
       <div className="popup__container">
         <button className="popup__close-button" type="button" aria-label="Закрыть" onClick={onClose} />
-        <form className="popup__content" method="post" name={userForm}>
+        <form className="popup__content" method="post" name={userForm} onSubmit={onSubmit}>
           <h3 className="popup__title">{`${title}`}</h3>
           <fieldset className="popup__fieldset">
             {children}

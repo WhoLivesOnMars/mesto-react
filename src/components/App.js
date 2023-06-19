@@ -5,7 +5,7 @@ import Main from './Main.js';
 import Footer from './Footer.js';
 import ImagePopup from './ImagePopup.js';
 import api from "../utils/Api.js";
-import { CurrentUserContext } from './contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import AddPlacePopup from './AddPlacePopup.js';
@@ -20,23 +20,14 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
 
   React.useEffect(() => {
-    api.getCurrentUser()
-    .then((res) => {
-      setCurrentUser(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }, []);
-
-  React.useEffect(() => {
-    api.getCards()
-    .then((cards) => {
-      setCards(cards)
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    Promise.all([api.getCurrentUser(), api.getCards()])
+      .then(([userData, cards]) => {
+        setCurrentUser(userData);
+        setCards(cards);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   function handleEditAvatarClick() {

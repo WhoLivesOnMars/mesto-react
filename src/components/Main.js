@@ -1,9 +1,19 @@
 import React from "react";
 import Card from "./Card.js";
-import { CurrentUserContext } from "./contexts/CurrentUserContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike, onCardDelete, cards }) {
   const currentUser = React.useContext(CurrentUserContext);
+  const cardsElements = cards.map((card) => (
+    <li key={card._id}>
+      <Card
+        card={card}
+        onCardClick={onCardClick}
+        onCardLike={onCardLike}
+        onCardDelete={onCardDelete} 
+      />
+    </li>
+  ))
 
   return (
     <main className="content">
@@ -21,14 +31,7 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike
       </section>
       <section className="elements">
         <ul className="elements__cells">
-          {cards.map((card) => (
-            <Card
-              key={card._id}
-              card={card}
-              onCardClick={onCardClick}
-              onCardLike={onCardLike}
-              onCardDelete={onCardDelete} />
-          ))}
+          {cardsElements}
         </ul>
       </section>
     </main>

@@ -1,6 +1,6 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import { CurrentUserContext } from "./contexts/CurrentUserContext";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -42,7 +42,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       onSubmit={handleSubmit}
     >
       <div className="popup__field">
-      <input 
+        <input 
           id="username-input"
           type="text"
           name="name"
@@ -53,11 +53,11 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           maxLength="40"
           value={name}
           onChange={handleNameChange}
-      />
-      <span className="username-input-error popup__input-error" />
+        />
+        <span className="username-input-error popup__input-error" />
       </div>
       <div className="popup__field">
-      <input 
+        <input 
           id="description-input"
           type="text"
           name="description"
@@ -68,8 +68,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           maxLength="200"
           value={description}
           onChange={handleDescriptionChange}
-      />
-      <span className="description-input-error popup__input-error"></span>
+        />
+        <span className="description-input-error popup__input-error" />
       </div>
     </PopupWithForm>
   ) 

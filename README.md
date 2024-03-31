@@ -1,4 +1,4 @@
-# Project: The Place on React
+# Project: The Mesto on React
 
 - Yandex.Praktikum project.
 - This is a single-page adaptive website about travel. The site is interactive, connected to a server, with the ability to edit profiles, change logos, add photos, like and unlike. Made with adaptive HTML and CSS layout, structured using the BEM methodology. The site is built with React, using functional components and React hooks useState and useEffect.
@@ -24,4 +24,4 @@
 - JavaScript
 - React
 
-[Ссылка на проект](https://wholivesonmars.github.io/mesto-react/)
+[Website link](https://wholivesonmars.github.io/mesto-react/)

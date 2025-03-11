@@ -24,4 +24,4 @@
 - JavaScript
 - React
 
-[Website link](https://wholivesonmars.github.io/mesto-react/)
+[Website link](https://wholivesonmars.github.io/mesto-react)

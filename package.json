@@ -1,8 +1,7 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
-  "main": "index.js",
-  "homepage": "https://wholivesonmars.github.io/mesto-react",
+  "homepage": "https://wholivesonmars.github.io/mesto-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,10 +17,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WhoLivesOnMars/mesto-react.git",
   },
   "eslintConfig": {
     "extends": [
